@@ -5,7 +5,7 @@ The scanner parses primitive data from an input source. Might be a text file, st
  */
 public class LabTwo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws java.io.FileNotFoundException {
         //In order to use a scanner. we must construct it.
         Scanner scan = new Scanner (System.in);
 
@@ -61,8 +61,21 @@ public class LabTwo {
             System.out.println("Oof, your guess was short by "+difference+".");
         }
 
-
         System.out.println(randomNumber);
+
+        File inputFile = new File("src/input.txt");
+        Scanner inputFileScanner = new Scanner(inputFile);
+        String nextWord;
+
+        boolean keepLooping = inputFileScanner.hasNext();
+        while ( keepLooping ) {
+            nextWord = inputFileScanner.next();
+            System.out.println( nextWord );
+            keepLooping = inputFileScanner.hasNext();
+        }
+
+
+
 
 
 
