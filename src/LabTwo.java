@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
+import java.awt.Point;
 /*
 The scanner parses primitive data from an input source. Might be a text file, string, or and InputStream.
  */
@@ -70,10 +71,58 @@ public class LabTwo {
         boolean keepLooping = inputFileScanner.hasNext();
         while ( keepLooping ) {
             nextWord = inputFileScanner.next();
-            System.out.println( nextWord );
+            System.out.print(" "+ nextWord);
             keepLooping = inputFileScanner.hasNext();
         }
 
+        /*
+        What is an Object?
+        Value vs Reference .
+        primitive data is passed by value whereas object data is passed by reference. A reference is an address in memory; it encodes a location.
+        The Integer class constucts Integer objects which is essentially the object equivalent of the int primitive. The Integer class is one of the wrapper classes
+
+         */
+
+        int b = 1;
+        //b's value is simply the int value 1.
+
+        Integer bb = 1;
+        // bb's value is an address where the Integer object referenced bb is located showing where the integer value is stored.
+
+        Integer cc = bb;
+        /*
+        In this example, I created an Integer object called cc and declared it equal to bb. Both cc and bb are referencing the same address where the object
+        data is stored. So essentially, 2 difference objects are referencing the same data stored.
+         */
+        Integer jj = 1;
+        Integer kk = 1;
+        /*
+        Here we have two Integers that equal 1. However, unlike the example above, these two objects are referencing different addresses where
+        object data is stored. In other words, they both have their OWN int 1 stored somewhere thats seperate from one another.
+         */
+
+        // Shared Reference Example.
+        Point origin = new Point(0, 0);
+
+        //Point otherPoint = origin;    this was changing both to 4,3 when I used the setLocation method on otherPoint. I needed to reference a new address in order to prevent this.
+        Point otherPoint = new Point(0, 0);
+
+        otherPoint.setLocation(4, 3);
+        System.out.println(" ");
+        System.out.println("The origin is at "+ origin.toString());
+        System.out.println("The other point is at "+ otherPoint.toString());
+
+        Point point_1 = new Point(0, 0);
+        Point point_2 = new Point(0, 0 );
+         // the points are equal right?
+
+        System.out.println( point_1.toString() + " equals "+ point_2.toString()+ " : " +(point_1==point_2));
+
+        /*
+        The reason these point_1 == point_2 is evaluating as false is because objects are passed by reference! that part of code is not comparing the values of the two
+        Point objects, it is comparing the references to those points. That is , the == operator is checking if the location of point_1 in memory is the same
+        as that of point_2.
+         */
 
 
 
