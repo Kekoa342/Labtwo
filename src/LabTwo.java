@@ -123,6 +123,30 @@ public class LabTwo {
         Point objects, it is comparing the references to those points. That is , the == operator is checking if the location of point_1 in memory is the same
         as that of point_2.
          */
+        Scanner scan3 = new Scanner(System.in);
+        System.out.println("How many fingers do you have?");
+
+        int userResponse = scan3.nextInt();
+        System.out.println("Who needs " + userResponse + " of anything, really...");
+
+        /*
+        String : Primitive or Object? In some contexts they behave like both in different ways in Java. strings can be compared to eachother with
+        the == operator like primitives but only if they were created without the new keyword.
+         */
+
+        String s1 = "asdf";
+        String s2 = "asdf";
+
+        System.out.println(s1 == s2);
+        System.out.println(s1.equals(s2));
+
+        String s3 = new String("asdf");
+
+        System.out.println(s1 == s3);
+        System.out.println(s1.equals(s3));
+
+
+
 
 
 
